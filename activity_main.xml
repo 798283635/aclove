@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:id="@+id/all_layout">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/bing_pic_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+        <com.mxn.soul.flowingdrawer_core.FlowingDrawer
+
+            android:id="@+id/drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:edPosition="1"
+            app:edMenuSize="260dp"
+            app:edMenuBackground="#dddddd">
+
+
+            <!--content-->
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include layout="@layout/title" />
+                <include layout="@layout/book" />
+                <include layout="@layout/news"/>
+            </LinearLayout>
+
+
+            <!--menu-->
+            <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
+                android:id="@+id/menulayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/id_container_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.design.widget.NavigationView
+                        android:id="@+id/nav_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start"
+                        app:headerLayout="@layout/nav_head"
+
+                        app:menu="@menu/nav_menu"/>
+                </FrameLayout>
+
+            </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
+        </com.mxn.soul.flowingdrawer_core.FlowingDrawer>
+    </FrameLayout>
+    <com.roughike.bottombar.BottomBar
+
+        android:id="@+id/bottomBar"
+
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+
+        app:bb_tabXmlResource="@xml/bottombar_tabs"
+        app:bb_inActiveTabColor="#CC33FF"/>
+</RelativeLayout>
